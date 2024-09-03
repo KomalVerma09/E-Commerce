@@ -15,9 +15,7 @@
     "functions": {
         "index.js": {
             "includeFiles": [
-                "views/**/*",
-                "public/**/*",
-                "models/**/*"
+                "views/**/*"
             ]
         }
     }
