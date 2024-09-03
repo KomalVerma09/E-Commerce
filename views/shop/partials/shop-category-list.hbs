@@ -1,0 +1,38 @@
+<div
+    class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-5 sm:gap-3 p-5 custom-grid-cols-1 cards product-list">
+    {{#each updateProduct as |p| }}
+
+    <div class="relative hover-card min-w-52 max-w-64 bg-white border border-gray-200 rounded-lg shadow-md  card">
+        {{> viewBtn p=p}}
+        <a href="#" class="shop_img">
+            <img class="px-2 rounded-t-lg h-56 w-full" src={{p.imageUrl}} alt="product image" />
+        </a>
+        <div class="px-4 pb-4 pt-2 bg-[#F0FDFF] rounded-b-lg border-b-4 border-[rgb(17,24,39)]">
+            <div class="">
+                <a href="#">
+                    <h5 class="text-base font-bold tracking-tight text-gray-900 description hidden">{{p.name}}</h5>
+                    <h5 class="text-base font-bold tracking-tight text-gray-900 truncated">{{p.truncatedName}}</h5>
+                </a>
+                <a href="#">
+                    <h5 class="text-sm font-semibold tracking-tight text-gray-900 truncated h-10">
+                        {{p.truncatedDescription}}</h5>
+                    <h5 class="text-sm font-semibold tracking-tight text-gray-900 description hidden min-h-10">
+                        {{p.description}}</h5>
+                </a>
+                <a href="#" class="flex justify-between">
+                    <h5 class="text-sm font-bold tracking-tight text-gray-900">{{p.seller}}</h5>
+                    <h5 class="text-sm font-semibold tracking-tight text-gray-900">{{p.category}}</h5>
+
+                </a>
+            </div>
+            <div class="flex items-center justify-between mt-2">
+                <span class="text-2xl font-bold text-gray-900">${{p.price}}</span>
+                <div class="flex justify-around items-center">
+                    {{> cart p=p}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{/each}}
+</div>

@@ -1,0 +1,65 @@
+<button id="multiLevelDropdownButton"
+        data-dropdown-toggle="multi-dropdown" 
+        class="text-white focus:ring-2 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center bg-gray-900 hover:bg-[#04537D] focus:ring-gray-900 multiLevelDropdownButton"
+        type="button">Filter <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m1 1 4 4 4-4" />
+        </svg>
+</button>
+
+<!-- Dropdown menu -->
+<div id="multi-dropdown" class="hidden divide-y divide-gray-100 rounded-lg shadow w-44 bg-gray-700"
+     style="z-index: 60;">
+    <ul class="py-2 text-sm text-gray-200" aria-labelledby="multiLevelDropdownButton">
+        <li>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-white">lorem</a>
+        </li>
+        <li>
+            <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdown"
+                    data-dropdown-placement="right-start" type="button"
+                    class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-600 hover:text-white">Category<svg
+                    class="w-2.5 h-2.5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="m1 9 4-4-4-4" />
+                </svg></button>
+            <div id="doubleDropdown"
+                 class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-44 bg-gray-700">
+                <ul class="py-2 text-sm text-gray-200" aria-labelledby="doubleDropdownButton">
+                    {{#each uniqueCategories as |c| }}
+                    <li class="uniqueCategory">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-white">{{c}}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </li>
+        <li>
+            <button id="doubleDropdownButton" data-dropdown-toggle="doubleDropdownForPrice"
+                    data-dropdown-placement="right-start" type="button"
+                    class="flex items-center justify-between w-full px-4 py-2 hover:bg-gray-600 hover:text-white">Price<svg
+                    class="w-2.5 h-2.5 ms-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 6 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                          d="m1 9 4-4-4-4" />
+                </svg></button>
+            <div id="doubleDropdownForPrice"
+                 class="z-10 hidden divide-y divide-gray-100 rounded-lg shadow w-44 bg-gray-700">
+                <ul class="py-2 text-sm text-gray-200" aria-labelledby="doubleDropdownButton">
+                    {{#each uniquePrices as |c| }}
+                    <li class="uniquePrice">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-white">{{c}}</a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </li>
+        <li>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-white">lorem</a>
+        </li>
+        <li>
+            <a href="#" class="block px-4 py-2 hover:bg-gray-600 hover:text-white">lorem</a>
+        </li>
+    </ul>
+</div>

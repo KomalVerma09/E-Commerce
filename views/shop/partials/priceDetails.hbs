@@ -1,0 +1,67 @@
+<div class="w-full max-w-md border border-gray-200 relative">
+    <div class="sticky top-28">
+        <div class="flow-root bg-white px-4 sm:px-8 rounded-lg shadow">
+            <ul role="list" class="divide-y divide-gray-200">
+                <li class="py-3 sm:py-4">
+                    <div class="flex items-center">
+                        <div class="flex-1 min-w-0 ms-4">
+                            <p class="text-xl font-bold text-gray-500 truncate">
+                                Price details
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="py-3 sm:py-4">
+                    <div class="flex items-center">
+                        <div class="flex-1 min-w-0 ms-4">
+                            <p class="text-base font-medium text-gray-900 truncate">
+                                MRP
+                            </p>
+                        </div>
+                        <div class="inline-flex items-center text-base font-semibold text-gray-900 totalPrice">
+                            {{totalPrice}}
+                        </div>
+                    </div>
+                    <div class="flex items-center pt-1">
+                        <div class="flex-1 min-w-0 ms-4">
+                            <p class="text-base font-medium text-gray-900 truncate">
+                                Product Discount
+                            </p>
+                        </div>
+                        <div class="inline-flex items-center text-base font-semibold text-gray-900">
+
+                            − ₹826
+                        </div>
+                    </div>
+                    <div class="flex items-center pt-1">
+                        <div class="flex-1 min-w-0 ms-4">
+                            <p class="text-base font-medium text-gray-900 truncate">
+                                Delivery Fee
+                            </p>
+                        </div>
+                        <div class="inline-flex items-center text-base font-semibold text-gray-900">
+                            Free
+                        </div>
+                    </div>
+                </li>
+                <li class="py-3 sm:py-4">
+                    <div class="flex items-center  font-semibold">
+                        <div class="flex-1 min-w-0 ms-4">
+                            <p class="text-lg text-gray-900 truncate">
+                                Total Amount
+                            </p>
+                        </div>
+                        <div class="inline-flex items-center text-base text-gray-900 totalPrice">
+                            {{totalPrice}}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="flex justify-end pb-5">
+                <button class="place-order-btn"> Place Order
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>

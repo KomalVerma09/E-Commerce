@@ -1,0 +1,319 @@
+.navbar{
+  z-index: 100;
+
+}
+.filterNav {
+  position: sticky;
+  top: 5rem;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+  z-index: 101;
+}
+body:has(.filterNav:sticky) .filterNav {
+  background-color: #111827;
+}
+
+.cards .card {
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.cards .card:hover {
+  transform: scale(1, 1);
+  z-index: 50;
+  .btn-view-cart{
+    display: block;
+  }
+}
+
+.cards:hover > .card:not(:hover) {
+  filter: blur(1px);
+  transform: scale(0.95, 0.95);
+  
+}
+.truncated:hover {
+  height: auto;
+}
+
+  
+  /* =========================cart css=========================== */
+.cart-button {
+  --width: 92px;
+  --height: 30px;
+  --gap-between-tooltip-to-button: 18px;
+  --button-color: #111827;
+  --tooltip-color: #fff;
+  width: var(--width);
+  height: var(--height);
+  background: var(--button-color);
+  position: relative;
+  text-align: center;
+  border-radius: 0.5em;
+  font-family: "Arial";
+  transition: background 0.7s;
+}
+
+
+.cart-button::after,
+.cart-button::before {
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s;
+}
+
+.cart-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-wrapper,
+.cart-text,
+.cart-icon {
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  color: #fff;
+}
+
+.cart-text {
+  top: 0;
+}
+
+.cart-text,
+.cart-icon {
+  transition: top 0.5s;
+}
+
+.cart-icon {
+  color: #fff;
+  top: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.cart-button:hover{
+  background-color: transparent;
+  border: 3px solid #111827;
+  .bi{
+    fill: #111827 !important;
+  }
+}
+
+.cart-button:hover .cart-text {
+  top: -100%;
+}
+
+.cart-button:hover .cart-icon {
+  top: 0;
+}
+
+.cart-button:hover:before,
+.cart-button:hover:after {
+  opacity: 1;
+  visibility: visible;
+}
+  /* =========================cart css=========================== */
+
+  /* =========================buy button======================= */
+.buy-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 7px;
+  gap: 7px;
+  background-color: #111827;
+  outline: 3px #111827 solid;
+  outline-offset: -3px;
+  border-radius: 0.5em;
+  border: none;
+  cursor: pointer;
+  transition: 400ms;
+}
+
+.buy-button .text {
+  color: white;
+  font-weight: 500;
+  transition: 400ms;
+}
+
+.buy-button svg path {
+  transition: 400ms;
+}
+
+.buy-button:hover {
+  background-color: transparent;
+}
+
+.buy-button:hover .text {
+  color: #111827;
+}
+
+.buy-button:hover svg path {
+  fill: #111827;
+}
+  /* =========================buy button======================= */
+
+  /* =========================place order==================== */
+.place-order-btn {
+  font-size: 18px;
+  display: inline-block;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  will-change: box-shadow,transform;
+  background: radial-gradient( 100% 100% at 100% 0%, #04537D 0%, #111827 100% );
+  padding: 0 2em;
+  border-radius: 0.3em;
+  color: #fff;
+  height: 2.6em;
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.place-order-btn:hover {
+  box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #04537D;
+  transform: translateY(-0.1em);
+}
+
+.place-order-btn:active {
+  box-shadow: inset 0px 0.1em 0.6em #04537D;
+  transform: translateY(0em);
+}
+  /* =========================place order==================== */
+
+  /* ==================view button======================= */
+  .shop_img{
+    position: relative;
+  }
+  .btn-view-cart {
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 5px 10px;
+    margin: 5px 10px 20px;
+    border-radius: 5px;
+    color: #111827;
+    border: 1px solid #111827;
+    background-color: #e0f2f1;
+    box-shadow: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+    position: absolute;
+    z-index: 60;
+    display: none;
+  }
+  /* ==================view button======================= */
+
+  /* =================ratings=========================== */
+.rating > label {
+  margin-right: 4px;
+}
+
+.rating:not(:checked) > input {
+  display: none;
+}
+
+.rating:not(:checked) > label {
+  float: right;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.rating:not(:checked) > label > svg {
+  fill: #666;
+  transition: fill 0.3s ease;
+}
+
+.rating > input:checked ~ label > svg {
+  fill: #ffa723;
+}
+
+.rating:not(:checked) > label:hover ~ label > svg,
+.rating:not(:checked) > label:hover > svg {
+  fill: #ff9e0b;
+}
+
+#star1:hover ~ label > svg,
+#star1:hover > svg {
+  fill: #a23c3c !important;
+}
+
+#star2:hover ~ label > svg,
+#star2:hover > svg {
+  fill: #99542d !important;
+}
+
+#star3:hover ~ label > svg,
+#star3:hover > svg {
+  fill: #9f7e18 !important;
+}
+
+#star4:hover ~ label > svg,
+#star4:hover > svg {
+  fill: #22885e !important;
+}
+
+#star5:hover ~ label > svg,
+#star5:hover > svg {
+  fill: #7951ac !important;
+}
+
+#star1:checked ~ label > svg {
+  fill: #ef4444;
+}
+
+#star2:checked ~ label > svg {
+  fill: #e06c2b;
+}
+
+#star3:checked ~ label > svg {
+  fill: #eab308;
+}
+
+#star4:checked ~ label > svg {
+  fill: #19c37d;
+}
+
+#star5:checked ~ label > svg {
+  fill: #ab68ff;
+}
+
+  /* =================ratings=========================== */
+
+  @media (max-width: 479px) {
+    .custom-grid-cols-1 {
+      grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+    .search-hide{
+        display: none;
+    }
+    .card_details{
+      padding: 10px 0px !important;
+    }
+    .buyCartBtn{
+      flex-direction: column;
+      gap: 10px;
+      align-items: start;
+      justify-content: start !important;
+    }
+    
+  }
+  @media (max-width: 249px) {
+    .cards {
+      padding: 10px 0px !important;
+    }
+    
+  }
+  
+  @media (min-width: 479px) {
+    .card{
+      height: 23.5rem;
+    }
+  }

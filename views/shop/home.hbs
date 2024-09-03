@@ -1,0 +1,36 @@
+{{!-- style="background: linear-gradient(to bottom, #FEF3B1, #E3E6E6);
+" --}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify</title>
+    {{> generalCss}}
+</head>
+
+<body class="bg-[#E3E6E6] mb-24">
+    {{> navbar}}
+
+
+
+    <div class="">
+        <div class="flex justify-end pr-5 pt-5">
+            {{> filterDropdown}}
+        </div>
+    
+        {{> shop_category_list products=products}}
+        {{> shop_selectedCategoryList products=products}}
+
+    </div>
+
+    <div class="md:hidden">
+        {{> bottomNav}}
+    </div>
+
+    {{> generalScript}}
+
+</body>
+
+</html>

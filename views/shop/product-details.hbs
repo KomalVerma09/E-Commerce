@@ -1,0 +1,76 @@
+{{!-- style="background: linear-gradient(to bottom, #FEF3B1, #E3E6E6);
+" --}}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify</title>
+    {{> generalCss}}
+</head>
+
+<body class="bg-[#E3E6E6] mb-24">
+    {{> navbar}}
+
+
+
+    <div class="p-10 card_details">
+
+
+        <!-- Render other partials if necessary -->
+        {{!-- {{> shop_category_list products=products}}
+        {{> shop_selectedCategoryList products=products}} --}}
+        <div class="">
+            {{#each updateProduct as |p|}}
+            <div class="flex flex-col items-start md:flex-row gap-10 lg:w-3/4 bg-white rounded-lg">
+                <div class="pt-5 pl-5">
+                    <img class="object-contain md:h-auto h-96 md:min-w-80 md:max-w-96 rounded-lg" src={{p.imageUrl}}
+                        alt="">
+
+                </div>
+                <div class="flex flex-col justify-start p-4 leading-normal">
+                    <div>
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-[#111827]">{{p.name}}</h5>
+                        <p class="text-sm font-semibold tracking-tight text-gray-900 min-h-10">{{p.description}}</p>
+
+                        <div class="text-2xl font-bold text-[#111827]">${{p.price}}</div>
+                        <h5 class="text-sm font-bold tracking-tight text-gray-900">{{p.seller}}</h5>
+                        <h5 class="text-sm font-semibold tracking-tight text-gray-900">{{p.category}}</h5>
+
+
+
+                    </div>
+                    <div class="flex justify-start pt-3">
+                        {{> ratings}}
+
+                    </div>
+
+
+                    <div class="flex justify-between mt-2 w-80 mt-5 buyCartBtn">
+
+                        {{> cart p=p}}
+                        {{> buy p=p}}
+
+                    </div>
+                </div>
+
+
+            </div>
+            {{/each}}
+        </div>
+
+
+
+    </div>
+
+
+    <div class="md:hidden">
+        {{> bottomNav}}
+    </div>
+
+    {{> generalScript}}
+
+</body>
+
+</html>
