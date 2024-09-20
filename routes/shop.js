@@ -14,4 +14,6 @@ router.get('/cartPage/add/:id', shopController.getAddToCartById);
 router.get('/cartPage/increase/:id', shopController.getIncreaseQuantity)
 router.get('/cartPage/decrease/:id', shopController.getDecreaseQuantity)
 
+router.get('/cart/buy', shopController.getCartBuy)
+
 module.exports=router; 

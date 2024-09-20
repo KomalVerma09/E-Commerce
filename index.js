@@ -16,6 +16,10 @@ app.use(async (req,res,next)=>{
     next();
 })
 
+
+hbs.registerHelper('lt', function (a, b, options) {
+  return a < b ? options.fn(this) : options.inverse(this);
+});
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
 hbs.registerPartials(path.join(__dirname, 'views/partials'));
@@ -25,14 +29,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended:true}))
 app.use(express.json())
 
-app.get('/', (req, res, next) => {
-    try {
-        res.render('index.hbs');
-    } catch (err) {
-        console.error("Rendering error: ", err);
-        res.status(500).send('Internal Server Error');
-    }
-});
+const homeRouter = require('./routes/home')
+app.get('/', homeRouter);
 
 // app.get('/',(req,res,next)=>{
 //     res.send('Hello World')
@@ -44,7 +42,7 @@ app.use('/admin',adminRouter);
 const shopRouter = require('./routes/shop')
 app.use('/shop', shopRouter)
 
-mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(MONGO_URI)
   .then(() => {
     console.log('Connected to MongoDB');
     app.listen(PORT, () => {

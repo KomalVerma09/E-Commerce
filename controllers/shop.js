@@ -204,3 +204,38 @@ module.exports.getDecreaseQuantity = async (req,res,next)=>{
     res.status(500).json({ message: "Error in fetching cart" });
   }
 }
+
+module.exports.getCartBuy = async (req,res,next)=>{
+  try{
+    let user = await Users.findOne({ _id: req.user._id }).populate('cart.id');
+    
+    let cart = user.cart;
+
+    let newOrder = {
+      products: [],
+      quantity: 0,
+      totalPrice: 0,
+    };
+    cart.forEach(item=>{
+      let orderItem = {
+      product : item.id,
+      quantity : item.quantity,
+      price : item.id.price*item.quantity
+    };
+      
+    newOrder.products.push(orderItem);
+    newOrder.quantity += item.quantity;
+    newOrder.totalPrice += orderItem.price;
+    })
+    await Users.findByIdAndUpdate(req.user._id,{
+      $push: { orders: newOrder },
+      $set: { cart: [] }
+    })
+    res.send({
+      message: "Order placed successfully"
+    })
+  }
+  catch{
+    res.status(500).json({ message: "Error in fetching cart" });
+  }
+}

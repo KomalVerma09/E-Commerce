@@ -1,24 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-{{> generalCss}}
+    {{> generalCss}}
+    <style>
+        .selected-list {
+            display: flex !important;
+            gap: 5px !important;
+        }
+    </style>
 </head>
+
 <body class="">
-    
-
-{{> navbar}}
-<div class="main-container ">
-    {{> carousel}}
-</div>
-<div class="md:hidden">
-{{> bottomNav}}
-</div>
 
 
+    {{> navbar}}
+    <div class="main-container">
+        {{> carousel}}
+<div class="relative -top-48 md:-top-96 lg:-top-48" style="z-index: 30;">
+        <div class="flex justify-center" >
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 w-11/12 " id="homeCategory">
+                {{#each products as |categoryObj categoryName|}}
 
-{{> generalScript}}
+                <div
+                    class="category grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 py-2 ">
+
+                    <div
+                        class=" hover-card w-52 sm:w-44 xl:w-52 bg-white border border-gray-200 rounded-lg shadow-md card-container ">
+                        <div class="shop_img pt-3 h-36 grid grid-cols-2" id="shop_img">
+                            {{#each categoryObj as |p index|}}
+                            {{#lt index 4}} <!-- Show only the first 4 images -->
+                            <a href="#" class=" flex  justify-center">
+                                <img class="w-20 h-14 productImg" src="{{p.imageUrl}}"
+                                    alt="product image" />
+                            </a>
+                            {{/lt}}
+                            {{/each}}
+                        </div>
+
+                        <div class="px-5 pb-4 pt-2 bg-[#F0FDFF] rounded-b-lg border-b-4 border-[rgb(17,24,39)]">
+
+                            <a href="#" class="flex justify-between">
+                                <h5 class="text-sm font-bold tracking-tight text-gray-900">{{categoryName}}</h5>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+
+
+
+
+        </div>
+        </div>
+    </div>
+    <div class="md:hidden">
+        {{> bottomNav}}
+    </div>
+
+
+
+    {{> generalScript}}
 </body>
+
 </html>

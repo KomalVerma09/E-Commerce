@@ -40,7 +40,7 @@ module.exports.getProductsAll = async (req, res, next) => {
         // Add truncatedDescription and truncatedName to each product
         let updatedProducts = updateProductWithtruncated(products)
 
-
+ 
         // categories all products categorywise
         let data = getProductsCategoryWise(updatedProducts)
 
